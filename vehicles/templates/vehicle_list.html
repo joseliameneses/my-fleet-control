@@ -1,0 +1,30 @@
+{% extends "base_vehicle.html" %}
+
+{% block content %}
+    <h2 class="align-center">Vehicles</h2>
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                    <tr>
+                        <th>Plate</th>
+                        <th>Style</th>
+                        <th>Year</th>
+                        <th>Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in object_list %}
+                            <tr>
+                                <td><a href="{% url 'edit_vehicle' list.pk %}">{{ list.plate }}</a></td>
+                                <td><label>{{ list.style }}</label></td>
+                                <td>{{ list.year }}</td>
+                                <td>{{ list.model }}</td>
+                            </tr>
+                    {% empty %}
+                            <li>Sem itens na lista.</li>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}

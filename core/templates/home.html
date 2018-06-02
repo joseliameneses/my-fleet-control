@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="align-center">RESERVES</h2>
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Style</th>
+                        <th>Plate</th>
+                        <th>Year</th>
+                        <th>Date Start</th>
+                        <th>Date End</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in object_list %}
+                            <tr>
+                                <td><a href="{% url 'edit_schedule' list.pk %}">{{ list.reservation_code }}</a></td>
+                                <td><label>{{ list.user_reserve.username }}</label></td>
+                                <td>{{ list.vehicle_reserve.style }}</td>
+                                <td>{{ list.vehicle_reserve.plate }}</td>
+                                <td>{{ list.vehicle_reserve.year }}</td>
+                                <td>{{ list.date_start }}</td>
+                                <td>{{ list.date_end }}</td>
+                            </tr>
+                    {% empty %}
+                            <li>Sem itens na lista.</li>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}

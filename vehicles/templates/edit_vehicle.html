@@ -1,0 +1,49 @@
+
+{% extends "base_vehicle.html" %}
+
+
+{% block content%}
+
+ <!-- Footer -->
+        <footer id="footer" class="wrapper">
+            <div class="inner">
+                <section>
+                    <div class="box">
+                        <div class="content">
+                            <h2 class="align-center">Vehicle</h2>
+                            <hr />
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="field half first">
+                                    <label >{{ form.plate.label }}</label>
+                                    {{ form.plate }}
+                                </div>
+                                <div class="field half">
+                                    <label> {{ form.style.label }} </label>
+                                    {{ form.style }}
+                                </div>
+                                <div class="field half first">
+                                    <label> {{ form.year.label }} </label>
+                                    {{ form.year }}
+                                </div>
+                                <div class="field half">
+                                    <label> {{ form.model.label }} </label>
+                                    {{ form.model }}
+                                </div>
+                                <ul class="actions align-center">
+                                    <li><input class="button special" type="submit" value="Update" /></li>
+                                </ul>
+                                {% comment %} <ul class="actions align-center">
+                                    <li><input class="button special" type="submit" value="Delete" /></li>
+                                </ul> {% endcomment %}
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <div class="copyright">
+                    &copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images <a href="https://unsplash.com/">Unsplash</a> Video <a href="http://coverr.co/">Coverr</a>.
+                </div>
+            </div>
+        </footer>
+
+{% endblock %}
